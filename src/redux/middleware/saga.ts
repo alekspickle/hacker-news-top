@@ -1,14 +1,14 @@
 import {put, take, call} from 'redux-saga/effects';
 import config from '../../config'
-import 
-const action = url => {
+
+const action =() => {
   return fetch()
   .then((response) => response.json())
   .then((responseJson) => {
     return responseJson;
   })
 };
-export function* getFlight() {
+export function* getTop() {
   try {
     yield take(FETCH_TOP);
     const flights = yield call(action); //1

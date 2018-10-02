@@ -1,24 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from "react";
 import { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-import Hello from "./components/Hello";
+import StoryList from "./components/StoryList";
 
-type Props = {name: string};
+type Props = { name: string };
 
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   render() {
+    console.disableYellowBox = true;
+
     return (
       <View style={styles.container}>
-        <Hello enthusiasmLevel={5}/>
+        <StoryList name="Hacker News Top" />
       </View>
     );
   }
@@ -42,3 +36,9 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 });
+
+const mapStateToProps = (state: any) => ({
+  user: state.user
+});
+
+export default App;
